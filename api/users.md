@@ -1,16 +1,19 @@
 # 회원 기능
 ## 회원가입
 - method: POST
-- endpont : http://{server}/signup
-- body : 
+- endpont: http://{server}:4000/signup
+- header: Content-Type: application/json
+- body: 
 ```
 {
-    "id":"password"
+    "email":"elon@mars.com",
+    "password":"wegomars",
+    "nick":"doge1"
 }
 ```
 - response:
 ```
 {
-    "data": 어쩌구저쩌구
+    
 }
 ```
