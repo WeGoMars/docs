@@ -81,19 +81,15 @@
 - body:
 ```
 {
-    "success": "true",
-    "message": "No user is registered with the provided email."
-    "data"{
-        "email": "elon@mars.com",
-        "password": "wegomars"
-    }
+    "email": "elon@mars.com",
+    "password": "wegomars"
 }
 ```
 - response: 200
 ```
 {
     "success": "true",
-    "message": "Login successful.",
+    "message": "Login successful."
 }
 ```
 - response: 400(입력 누락)
