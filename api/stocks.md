@@ -1,35 +1,37 @@
-# 회원 기능
-## 회원가입
+# 종목 기능
+## 종목 검색
 - method: POST
-- endpont: http://{server}:4000/users/signup
+- endpont: http://{server}:4000/stocks/search?query={param ex:aapl}
 - header: Content-Type: application/json
 - body: 
 ```
-{
-    "email":"elon@mars.com",
-    "password":"wegomars",
-    "nick":"doge1"
-}
+{}
 ```
 
 - response: 200
 ```
 {
     "success": true,
-    "message": "User registered successfully.",
-    "user": {
-        "id": 1,
-        "email": "elon@mars.com",
-        "nick": "doge1"
-    }
+    "message": "Search successful.",
+    "data": [
+        {
+            "symbol": "AAPL",
+            "name": "Apple Inc.",
+            "exchange": "NASDAQ"
+        },
+        {
+            "symbol": "AAPL.MX",
+            "name": "Apple Inc.",
+            "exchange": "Mexican Stock Exchange"
+        }
+    ]
 }
 ```
 
-- response: 400 실패시1 (이메일 중복)
+- response: 400 실패시
 ```
 {
-    "success": false,
-    "message": "Email already in use."
+  
 }
 ```
 
@@ -44,7 +46,7 @@
 ## 비밀번호 초기화 (authentication) 
 
 - method: POST
-- endpont: http://{server}:4000/users/resetpwd
+- endpont: http://{server}:4000/stocks/resetpwd
 - header: Content-Type: application/json
 - body: 
 ```
@@ -56,7 +58,7 @@
 - response: 200
 ```
 {
-        "success": true,
+    "success": true,
     "message": "Authentication successful. You may now reset your password."
 }
 ```
