@@ -87,10 +87,11 @@
 ```
 - response: 200
 ```
+Set-Cookie: session_id=abcdef123456; Path=/; HttpOnly; Secure
+
 {
     "status": "success",
     "message": "Login successful.",
-    "token": "jwt_token" _ex:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.."
 }
 ```
 - response: 400(입력 누락)
@@ -119,12 +120,14 @@
 ```
 - response: 200 OK (로그아웃 성공)
 ```
+Set-Cookie: session_id=; Path=/; Max-Age=0
+
 {  
     "status": "success",
     "message": "Logout successful."
 }
 ```
-- response: 401 Unauthorized (토큰 없음 또는 만료)
+- response: 401 Unauthorized (세션 없음 또는 만료)
 ```
 {
     "status": "false",
