@@ -17,7 +17,7 @@
 {
     "status": "success",
     "message": "User registered successfully.",
-    "user": {
+    "data": {
         "id": 1,
         "email": "elon@mars.com",
         "nick": "doge1"
@@ -81,8 +81,12 @@
 - body:
 ```
 {
-    "email": "elon@mars.com",
-    "password": "wegomars"
+    "status": "success",
+    "message": "No user is registered with the provided email."
+    "data"{
+        "email": "elon@mars.com",
+        "password": "wegomars"
+    }
 }
 ```
 - response: 200
