@@ -56,21 +56,21 @@
 ```
 {
     "status": "success",
-    "message": "인증에 성공했습니다. 비밀번호를 재설정할 수 있습니다."
+    "message": "Authentication successful. You can reset your password."
 }
 ```
 - response: 400 실패시1(인증번호 X)
 ```
 {
     "status": "false",
-    "message": "인증번호가 일치하지 않습니다."
+    "message": "The verification code does not match."
 }
 ```
 - response: 400 실패시2 (이메일 X)
 ```
 {
     "status": "false",
-    "message": "해당 이메일로 등록된 사용자가 없습니다."
+    "message": "No user is registered with the provided email."
 }
 ```
 
@@ -87,8 +87,6 @@
 ```
 - response: 200
 ```
-Set-Cookie: session_id=abcdef123456; Path=/; HttpOnly; Secure
-
 {
     "status": "success",
     "message": "Login successful.",
@@ -110,18 +108,10 @@ Set-Cookie: session_id=abcdef123456; Path=/; HttpOnly; Secure
 ```
 
 ## 로그아웃
-- method: POST
-- endpoint: http://{server}:4000/login
-- header: Content-Type: application/json
-- Authorization: Bearer {jwt_token}
-- body:
-```
-{}
-```
+- method: GET
+- endpoint: http://{server}:4000/logout
 - response: 200 OK (로그아웃 성공)
 ```
-Set-Cookie: session_id=; Path=/; Max-Age=0
-
 {  
     "status": "success",
     "message": "Logout successful."
