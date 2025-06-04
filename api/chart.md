@@ -1,11 +1,9 @@
-# 주식 차트 데이터 API
 
-# 차트 데이터 조회
-
+# 차트 데이터 조회 ✔️
+- 캔들차트를 뽑기 위한 데이터를 요청청
 ```
 method: GET
-endpoint: http://{server}:4000/stocks/chart?symbol={symbol}&interval={interval}&limit={limit}
-header: Content-Type: application/json
+endpoint: /api/stocks/chart?symbol={symbol}&interval={interval}&limit={limit}
 parameters:
 symbol: 종목 코드 (예: AAPL)
 interval: 차트 기간 (1h,1day,1week,1month)
@@ -55,15 +53,11 @@ limit:몇 개의 ohlcv 데이터를 가져올지(data 의 length 를 결정). �
   "message": "No Such Symbol : (AAPd)"
 }
 ```
-
-# 주식 기본 정보 API
-
-# 종목 상세 정보 조회
-
+# 종목 상세 정보 조회 ✔️
+- 정확한 심볼 정보를 req, 자세한 주식종목정보를 res 
 ```
 method: GET
-endpoint: http://{server}:4000/stocks/{symbol}
-header: Content-Type: application/json
+endpoint: /api/stocks/{symbol}
 parameters:
 symbol: 종목 코드 (예: AAPL)
 ```
@@ -101,44 +95,43 @@ symbol: 종목 코드 (예: AAPL)
 }
 ```
 
-# 주식 검색 API
-
-# 종목 검색
-
-```
-method: POST
-endpoint: http://{server}:4000/stocks/search?query={param}
-header: Content-Type: application/json
-```
+# 주식 종목 검색 ✔️
+-심볼 문자열의 일부를 req, 해당 문자열을 이름 or symbol에 포함한 주식을 최대 limit 개 배열에 담아 res
 
 ```
-
-- body
-{}
-
+method: GET
+endpoint: /api/stocks/search?query={query}&limit={limit}
+```
+```
+query : 검색 조건이 될 문자열(심볼, 네임 어느쪽이든 가능, 아래는 AA로 검색한 예시)
+limit : 숫자, 최대 20건
 ```
 
-```
 - response: 200
+```JSON
 {
-    "success": true,
-    "message": "Search successful.",
-    "data": [
-        {
-            "symbol": "AAPL",
-            "name": "Apple Inc.",
-            "price": "175.04",
-            "change": "+1.23",
-            "changePercent": "+0.71%"
-        },
-        {
-            "symbol": "AAPL.MX",
-            "name": "Apple Inc.",
-            "price": "175.04",
-            "change": "+1.23",
-            "changePercent": "+0.71%"
-        }
-    ]
+  "success": true,
+  "message": "search succesful",
+  "data": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "currentPrice": 200.66,
+      "priceDelta": -0.18999999999999773
+    },
+    {
+      "symbol": "FICO",
+      "name": "Fair Isaac Corporation",
+      "currentPrice": 1724.71,
+      "priceDelta": 0
+    },
+    {
+      "symbol": "MAA",
+      "name": "Mid-America Apartment Communiti",
+      "currentPrice": 155.97,
+      "priceDelta": 0
+    }
+  ]
 }
 ```
 
