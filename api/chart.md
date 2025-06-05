@@ -156,7 +156,7 @@ method: GET
 endpoint: /api/stocks/list?option={option}&limit={limit}
 ```
 ```
-option : [hot,owned,liked] 3중 1택
+option : [hot,owned,liked] 3중 1택 (현재 HOT만 완성)
 limit : 숫자, 최대 20건
 ```
 
