@@ -114,22 +114,20 @@ limit : 숫자, 최대 20건
   "message": "search succesful",
   "data": [
     {
+      "symbol": "A",
+      "name": "Agilent Technologies, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research",
+      "currentPrice": 111.84,
+      "priceDelta": -0.0799999999999983
+    },
+    {
       "symbol": "AAPL",
       "name": "Apple Inc.",
+      "sector": "Technology",
+      "industry": "Consumer Electronics",
       "currentPrice": 200.66,
       "priceDelta": -0.18999999999999773
-    },
-    {
-      "symbol": "FICO",
-      "name": "Fair Isaac Corporation",
-      "currentPrice": 1724.71,
-      "priceDelta": 0
-    },
-    {
-      "symbol": "MAA",
-      "name": "Mid-America Apartment Communiti",
-      "currentPrice": 155.97,
-      "priceDelta": 0
     }
   ]
 }
