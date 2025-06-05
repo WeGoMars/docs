@@ -118,22 +118,25 @@ limit : 숫자, 최대 20건
       "name": "Agilent Technologies, Inc.",
       "sector": "Healthcare",
       "industry": "Diagnostics & Research",
-      "currentPrice": 111.84,
-      "priceDelta": -0.0799999999999983
+      "currentPrice": 114.97,
+      "priceDelta": 3.049999999999997,
+      "hourlyVolume": 55892
     },
     {
       "symbol": "AAPL",
       "name": "Apple Inc.",
       "sector": "Technology",
       "industry": "Consumer Electronics",
-      "currentPrice": 200.66,
-      "priceDelta": -0.18999999999999773
+      "currentPrice": 202.84,
+      "priceDelta": 1.990000000000009,
+      "hourlyVolume": 266878
     }
   ]
 }
 ```
 ```
 pricedelta : 어제 종가 - 현재가. 주식정보 제공 사이트들은 보통 어제 종가 대비 얼마나 변화했나를 퍼센트로 나타낸다고 한다. 만약 퍼센트로 표시하고 싶다면 계산이 필요.
+hourlyVolume : 최근 1시간 이내 거래량
 ```
 
 ```
@@ -142,4 +145,76 @@ pricedelta : 어제 종가 - 현재가. 주식정보 제공 사이트들은 보�
     "success": false,
     "message": "Search query parameter is required"
 }
+```
+
+
+
+# 주식 목록 조회 ✔️(반만 완성)
+-핫한 종목, 내 종목, 내 관심종목 의 3가지 옵션에 따라 목록을 반환.
+```
+method: GET
+endpoint: /api/stocks/list?option={option}&limit={limit}
+```
+```
+option : [hot,owned,liked] 3중 1택
+limit : 숫자, 최대 20건
+```
+
+- response: 200
+```JSON
+{
+  "success": true,
+  "message": "listing succesful",
+  "data": [
+    {
+      "symbol": "T",
+      "name": "AT&T Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services",
+      "currentPrice": 27.37,
+      "priceDelta": -0.4299999999999997,
+      "hourlyVolume": 5288960
+    },
+    {
+      "symbol": "DFS",
+      "name": "Discover Financial Services",
+      "sector": "Financial Services",
+      "industry": "Credit Services",
+      "currentPrice": 200.21,
+      "priceDelta": 0.1599999999999966,
+      "hourlyVolume": 3716820
+    },
+    {
+      "symbol": "WFC",
+      "name": "Wells Fargo & Company",
+      "sector": "Financial Services",
+      "industry": "Banks - Diversified",
+      "currentPrice": 75.39,
+      "priceDelta": 0.6099999999999994,
+      "hourlyVolume": 3550730
+    },
+    {
+      "symbol": "VZ",
+      "name": "Verizon Communications Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services",
+      "currentPrice": 43.25,
+      "priceDelta": -0.7100000000000009,
+      "hourlyVolume": 3069330
+    },
+    {
+      "symbol": "XOM",
+      "name": "Exxon Mobil Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Integrated",
+      "currentPrice": 102.305,
+      "priceDelta": 0.005000000000009663,
+      "hourlyVolume": 2756710
+    }
+  ]
+}
+```
+```
+pricedelta : 어제 종가 - 현재가. 주식정보 제공 사이트들은 보통 어제 종가 대비 얼마나 변화했나를 퍼센트로 나타낸다고 한다. 만약 퍼센트로 표시하고 싶다면 계산이 필요.
+hourlyVolume : 최근 1시간 이내 거래량
 ```
