@@ -1,6 +1,6 @@
 
 # 차트 데이터 조회 ✔️
-- 캔들차트를 뽑기 위한 데이터를 요청청
+- 캔들차트를 뽑기 위한 데이터를 요청
 ```
 method: GET
 endpoint: /api/stocks/chart?symbol={symbol}&interval={interval}&limit={limit}
