@@ -58,7 +58,7 @@ header: Content-Type: application/json
   "data": {
     "email": "elon8@mars.com",
     "nick": "doge1",
-    "cyberDollor": 100000,
+    "cyberDollar": 100000,
     "updatedAt": "2025-06-05T00:40:16.666Z"
   }
 }
