@@ -114,3 +114,45 @@ endpoint: /api/portfolios/stock
 - evalGain: 평가손익
 - returnRate: 수익률
 
+
+
+# 주식 거래내역 조회 ✔️
+- 매수 또는 매도를 진행 했던 내역을 조회
+## 요청
+```
+method: GET
+endpoint: /api/portfolios/history
+제약 조건 : 로그인 필수
+```
+
+## 응답
+- response: 200
+```JSON
+{
+  "success": true,
+  "message": "this is your stock trade history!",
+  "data": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "quantity": 3,
+      "currentPrice": 202.66,
+      "date": "2025-06-07T05:41:26.709Z",
+      "returnRate": 0.0148031185
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "quantity": 1,
+      "currentPrice": 470.16,
+      "date": "2025-06-08T14:21:36.709Z",
+      "returnRate": 0.0112321212
+    }
+  ]
+}
+```
+### 응답 파라미터
+- currentPrice: 거래단가
+- quantity: 수량
+- returnRate: 수익률
+
